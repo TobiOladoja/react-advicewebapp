@@ -16,7 +16,9 @@ class App extends Component {
     axios
       .get('https://api.adviceslip.com/advice')
       .then((response) => {
-        console.log(response);
+        const { advice } = response.data.slip; // Destructured and took advice from response.data.slip.advice
+
+        this.setState({ advice });
       })
       .catch((error) => {
         console.log(error);
@@ -24,7 +26,8 @@ class App extends Component {
   };
 
   render() {
-    return <h1>Yoo</h1>;
+    const { advice } = this.state; //Destructured and took advice from this.state.advice
+    return <h1>{advice}</h1>;
   }
 }
 
