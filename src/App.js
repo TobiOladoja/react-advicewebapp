@@ -27,7 +27,17 @@ class App extends Component {
 
   render() {
     const { advice } = this.state; //Destructured and took advice from this.state.advice
-    return <h1>{advice}</h1>;
+    const { fetchAdvice } = this;
+    return (
+      <div className='app'>
+        <div className='card'>
+          <h1 className='heading'>{advice}</h1>
+          <button className='button' onClick={fetchAdvice}>
+            <span>GIVE ME ADVICE!</span>
+          </button>
+        </div>
+      </div>
+    );
   }
 }
 
